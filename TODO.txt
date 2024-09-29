@@ -5,6 +5,5 @@ TODO:
  - Make exsisting things thread safe
 
 Long term TODOs:
- - Threads and atomics (or take atomics from libc)
+ - More extensive thread stuff plus atomics (or take atomics from libc)
  - Basic windowing stuff? (frame buffer / keyboard/mouse io) (feels like posix is gonna be painful)
-
