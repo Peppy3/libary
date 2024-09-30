@@ -1,5 +1,5 @@
 
-TODO:
+TODOs:
  - utf-X support
  - Hash map
  - Make exsisting things thread safe
@@ -7,3 +7,4 @@ TODO:
 Long term TODOs:
  - More extensive thread stuff plus atomics (or take atomics from libc)
  - Basic windowing stuff? (frame buffer / keyboard/mouse io) (feels like posix is gonna be painful)
+
