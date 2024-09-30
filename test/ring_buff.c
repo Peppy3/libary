@@ -90,7 +90,7 @@ bool ring_buffer_can_loop(void *state) {
 	}
 
 	for (size_t i = 0; i < NUM_PUSHES; i++) {
-		void *foo = (void *)i + 1;
+		void *foo = (void *)(i + 1);
 	
 		bool success = RingBuffer_enqueue(buff, foo);
 	

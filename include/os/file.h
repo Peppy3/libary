@@ -6,7 +6,7 @@
 #include <stdbool.h>
 
 // Unbuffered file
-typedef long File;
+typedef intptr_t File;
 
 // NOTE: if it is doable, add async flag
 enum FileOpenFlags {
