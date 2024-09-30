@@ -22,7 +22,7 @@ File File_open(const char *path, enum FileOpenFlags flags) {
 	open_flags |= (flags & FileOpenFlags_CREATE) ? O_CREAT : 0;
 	open_flags |= (flags & FileOpenFlags_TRUNCATE) ? O_TRUNC : 0;
 
-	return (long)open(path, open_flags);
+	return (intptr_t)open(path, open_flags);
 }
 
 bool File_close(File file) {
