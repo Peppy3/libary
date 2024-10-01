@@ -7,7 +7,7 @@
 bool os_memory_mmap_private(void *state) {
 	const size_t map_size = 4096;
 	
-	void *mapping = Libary_memory_map(NULL, map_size, LIBARY_FILE_INVALID_HANDLE, 
+	void *mapping = Libary_memory_map(NULL, map_size, 
 			MMapProt_Read | MMapProt_Write, false);
 
 	if (mapping == NULL) {

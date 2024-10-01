@@ -11,7 +11,7 @@ MACRO(SUBDIRLIST result curdir)
   SET(${result} ${dirlist})
 ENDMACRO()
 
-target_sources(${PROJECT_NAME} PRIVATE file.c)
+target_sources(${PROJECT_NAME} PRIVATE file.c "memory.c")
 
 target_compile_options(${PROJECT_NAME} PUBLIC /experimental:c11atomics)
 
