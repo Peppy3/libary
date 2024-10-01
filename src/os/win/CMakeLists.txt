@@ -40,6 +40,6 @@ string(REPLACE "\\" "/" VS_INSTALL_DIR ${VS_INSTALL_DIR})
 
 # get a list of all installed MSVC versions and pick the newest
 SUBDIRLIST(MSVC_INSTALL_DIR "${VS_INSTALL_DIR}/VC/Tools/MSVC")
-list(GET MSVC_INSTALL_DIR -1 MSVC_INSTALL_DIR)
+list(GET MSVC_INSTALL_DIR -1 MSVC_VER)
 
-target_link_directories(${PROJECT_NAME} PUBLIC "${VS_INSTALL_DIR}/VC/Tools/MSVC/14.38.33130/lib/x64")
+target_link_directories(${PROJECT_NAME} PUBLIC "${VS_INSTALL_DIR}/VC/Tools/MSVC/${MSVC_VER}/lib/x64")
