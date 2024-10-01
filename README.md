@@ -5,9 +5,9 @@ WARNING!! IN EARLY DEVELOPMENT
 
 General purpose C library for modern application development
 
-Run ``make`` to compile the library
-
-To test it, run ``make test``
+Use ``cmake`` to make the library
+It will output a static library and a test executable
+Run the test executable to run the tests
 
 
 
