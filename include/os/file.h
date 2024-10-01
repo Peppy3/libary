@@ -6,7 +6,11 @@
 #include <stdbool.h>
 
 // Unbuffered file
+#ifndef __LIBARY_FILE_DEFINED
+#define __LIBARY_FILE_DEFINED
 typedef intptr_t File;
+#define LIBARY_FILE_INVALID_HANDLE (-1)
+#endif
 
 // NOTE: if it is doable, add async flag
 enum FileOpenFlags {
@@ -18,7 +22,7 @@ enum FileOpenFlags {
 };
 
 /*
- * Opens a file. It must be opened for either reading, writing or both.
+ * Opens a file. It must be opened for either reading, writing, or both.
  * If FileOpenFlags_CREATE flag is set, it creates the file if it does not already exsist.
  * If the FileOpenFlags_TRUNCATE is set, the file will be truncated if it already exsists.
  * returns -1 on error
