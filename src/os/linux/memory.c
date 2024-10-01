@@ -6,7 +6,7 @@
 #include <os/memory.h>
 
 
-void *Libary_memory_map(void *start_addr, size_t size, 
+void *Libary_memory_map_file(void *start_addr, size_t size,
 		File file, enum MMapProt prot, bool shared) {
 
 	if (prot & MMapProt_Execute && !(prot & MMapProt_Read)) {
@@ -27,7 +27,7 @@ void *Libary_memory_map(void *start_addr, size_t size,
 	return (addr != MAP_FAILED) ? addr : NULL;
 }
 
-bool Libary_memory_unmap(void *start_addr, size_t size) {
+bool Libary_memory_unmap_file(void *start_addr, size_t size) {
 	return (bool)munmap(start_addr, size);
 }
 

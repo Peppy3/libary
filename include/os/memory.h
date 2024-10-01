@@ -24,7 +24,7 @@ enum MMapProt {
 // shared: if the memory map is shared or private
 //
 // returns NULL if not able to map the memory region
-void *Libary_memory_map(void *start_addr, size_t size, 
+void *Libary_memory_map_file(void *start_addr, size_t size,
 		File file, enum MMapProt prot, bool shared);
 
 
@@ -32,7 +32,23 @@ void *Libary_memory_map(void *start_addr, size_t size,
 // size: the size of the memory region
 //
 // returns true if unable to unmap the memory region
-bool Libary_memory_unmap(void *start_addr, size_t size);
+bool Libary_memory_unmap_file(void *start_addr, size_t size);
+
+// works the same as Libary_memory_map_file, except that this one maps memory not backed by any file
+// start_addr: NULL or a request to the start of the memory region (the request may not be fulfilled
+// size: size size of the object being mapped
+// prot: what memory protections the memory mapping should have (this should not be set to write and execute)
+// shared: if the memory map is shared or private
+//
+// returns NULL if not able to map the memory region
+void* Libary_memory_map(void* start_addr, size_t size,
+	enum MMapProt prot, bool shared);
+
+// start_addr: address to the start of the memory region
+// size: the size of the memory region
+//
+// returns true if unable to unmap the memory region
+bool Libary_memory_unmap(void* start_addr, size_t size);
 
 #endif /* LIBARY_OS_MEMORY */
 
