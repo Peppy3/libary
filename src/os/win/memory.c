@@ -7,7 +7,7 @@
 #include <os/memory.h>
 
 
-void *Libary_memory_map_file(void *start_addr, size_t size, 
+void *Libary_map_file(void *start_addr, size_t size, 
 		File file, enum MMapProt prot, bool shared) {
 
 	if (prot & MMapProt_Execute && !(prot & MMapProt_Read)) {
@@ -50,7 +50,7 @@ void *Libary_memory_map_file(void *start_addr, size_t size,
 	
 }
 
-bool Libary_memory_unmap_file(void *start_addr, size_t size) {
+bool Libary_unmap_file(void *start_addr, size_t size) {
 	// we have to call FlushViewOfFile because the modified pages are written "lazily" to disk
 	if (!FlushViewOfFile(start_addr, size)) {
 		return true; // unable to flush file to disk
@@ -58,7 +58,7 @@ bool Libary_memory_unmap_file(void *start_addr, size_t size) {
 	return !UnmapViewOfFile(start_addr);
 }
 
-void* Libary_memory_map(void* start_addr, size_t size,
+void* Libary_map_memory(void* start_addr, size_t size,
 	enum MMapProt prot, bool shared) {
 
 	if (prot & MMapProt_Execute && !(prot & MMapProt_Read)) {
@@ -87,6 +87,6 @@ void* Libary_memory_map(void* start_addr, size_t size,
 	return VirtualAlloc(start_addr, size, MEM_RESERVE | MEM_COMMIT, protection);
 }
 
-bool Libary_memory_unmap(void* start_addr, size_t size) {
+bool Libary_unmap_memory(void* start_addr, size_t size) {
 	return !VirtualFree(start_addr, 0, MEM_RELEASE);
 }

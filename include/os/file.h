@@ -34,8 +34,11 @@ bool File_close(File file);
 
 // reads and writes a buffer of a set size to the file
 // they either return the size read or written or -1 if an error occured
-intmax_t File_read(File file, size_t size, const void *buff);
-intmax_t File_write(File file, size_t size, void *buff);
+intmax_t File_read(File file, size_t size, void *buff);
+intmax_t File_write(File file, size_t size, const void *buff);
+
+// returns the size of the file in bytes
+size_t File_size(File file);
 
 File File_get_stdin(void);
 File File_get_stdout(void);

@@ -6,6 +6,7 @@
 
 #include <unistd.h>
 #include <fcntl.h>
+#include <sys/stat.h>
 
 #include <os/file.h>
 
@@ -29,14 +30,23 @@ bool File_close(File file) {
 	return close(file) != -1;
 }
 
-intmax_t File_read(File file, size_t size, const void *buff) {
-	return write(file, buff, size);
-}
-
-intmax_t File_write(File file, size_t size, void *buff) {
+intmax_t File_read(File file, size_t size, void *buff) {
 	return read(file, buff, size);
 }
 
+intmax_t File_write(File file, size_t size, const void *buff) {
+	return write(file, buff, size);
+}
+
+size_t File_size(File file) {
+	struct stat st;
+
+	if (fstat(file, &st) == -1) {
+		assert(true);
+	}
+
+	return st.st_size;
+}
 
 File File_get_stdin(void) { return STDIN_FILENO; }
 File File_get_stdout(void) { return STDOUT_FILENO; }
