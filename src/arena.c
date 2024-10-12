@@ -8,7 +8,7 @@
 
 struct Arena {
 	size_t cap;
-	atomic_size_t allocated;
+	size_t allocated;
 };
 
 struct Arena *Arena_new(size_t size) {

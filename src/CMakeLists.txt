@@ -5,6 +5,6 @@ elseif (WIN32)
 	add_subdirectory(os/win)
 endif ()
 
-target_sources(${PROJECT_NAME} PRIVATE arena.c ring_buff.c test.c)
+target_sources(${PROJECT_NAME} PRIVATE rand.c arena.c ring_buff.c test.c)
 
 
